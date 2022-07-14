@@ -1,19 +1,23 @@
 #pragma once
+#include "colors.h"
 
 class player
 {
 private:
-    char *player_name;
-    int player_score;
+    char *name;
+    int score;
+	colors color;
 
 public:
-    player(char *name);
+    player(char *name, colors player_color);
     player();
     ~player();
 
-    int get_player_score();
-    char *get_player_name();
+    int get_score();
+    char *get_name();
 
-    void set_player_score(int score);
-    void set_player_name(char *name);
+    void set_score(int score);
+    void set_name(char *name);
+
+    colors get_color();
 };

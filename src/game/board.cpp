@@ -13,27 +13,27 @@ board::board()
     {
         for (int j = 0; j < CHECKERS_BOARD_SIZE; j++)
         {
-            this->board_cell[i][j] = cell();
+            this->board_cell[i][j] = new cell();
             if (i % 2 == 0)
             {
                 if (j % 2 == 0)
                 {
-                    this->board_cell[i][j].set_color(WHITE);
+                    this->board_cell[i][j]->set_color(WHITE);
                 }
                 else
                 {
-                    this->board_cell[i][j].set_color(BLACK);
+                    this->board_cell[i][j]->set_color(BLACK);
                 }
             }
             else
             {
                 if (j % 2 == 0)
                 {
-                    this->board_cell[i][j].set_color(BLACK);
+                    this->board_cell[i][j]->set_color(BLACK);
                 }
                 else
                 {
-                    this->board_cell[i][j].set_color(WHITE);
+                    this->board_cell[i][j]->set_color(WHITE);
                 }
             }
         }
@@ -47,7 +47,7 @@ board::board(int board_size)
     if (board_size != 12 && board_size != 10 && board_size != 8)
     {
         printf("Taille de tableau invalide, utilisez 12, 10 ou 8\n");
-        board_size = CHECKERS_BOARD_SIZE;
+        this->size = CHECKERS_BOARD_SIZE;
     }
     else
     {
@@ -58,46 +58,41 @@ board::board(int board_size)
     {
         for (int j = 0; j < this->size; j++)
         {
-            this->board_cell[i][j] = cell();
+            this->board_cell[i][j] = new cell();
             if (i % 2 == 0)
             {
                 if (j % 2 == 0)
                 {
-                    this->board_cell[i][j].set_color(WHITE);
+                    this->board_cell[i][j]->set_color(WHITE);
                 }
                 else
                 {
-                    this->board_cell[i][j].set_color(BLACK);
+                    this->board_cell[i][j]->set_color(BLACK);
                 }
             }
             else
             {
                 if (j % 2 == 0)
                 {
-                    this->board_cell[i][j].set_color(BLACK);
+                    this->board_cell[i][j]->set_color(BLACK);
                 }
                 else
                 {
-                    this->board_cell[i][j].set_color(WHITE);
+                    this->board_cell[i][j]->set_color(WHITE);
                 }
             }
         }
     }
 }
 
-int board::get_board_size()
+int board::get_size()
 {
     return size;
 }
 
-cell board::get_cell(int x, int y)
+cell * board::get_cell(int x, int y)
 {
     return this->board_cell[y][x];
-}
-
-piece board::get_piece(int x, int y)
-{
-    return this->board_cell[x][y].get_piece();
 }
 
 board::~board()

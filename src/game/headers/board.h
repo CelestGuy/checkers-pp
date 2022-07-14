@@ -1,4 +1,4 @@
-#define CHECKERS_BOARD_SIZE 10
+#define CHECKERS_BOARD_SIZE 11
 
 #include "piece.h"
 #include "cell.h"
@@ -9,15 +9,14 @@ class board
 {
 private:
     int size;
-    cell board_cell[CHECKERS_BOARD_SIZE][CHECKERS_BOARD_SIZE];
+    cell *board_cell[CHECKERS_BOARD_SIZE][CHECKERS_BOARD_SIZE];
 
 public:
     board();
     board(int board_size);
     ~board();
 
-    int get_board_size();
+    int get_size();
 
-    piece get_piece(int x, int y);
-    cell get_cell(int x, int y);
+    cell *get_cell(int x, int y);
 };

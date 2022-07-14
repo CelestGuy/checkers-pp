@@ -12,7 +12,7 @@ enum types
 class piece
 {
 private:
-    bool can_be_promoted;
+    bool promoted;
     colors color;
     types type;
 
@@ -21,7 +21,8 @@ public:
     piece();
     ~piece();
 
-    void promote(types new_type);
+    void promote();
+	void demote();
     bool is_promoted();
 
     colors get_color();

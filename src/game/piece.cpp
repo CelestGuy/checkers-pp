@@ -5,20 +5,29 @@ piece::piece(colors piece_color, types piece_type)
 {
     color = piece_color;
     type = piece_type;
+	promoted = false;
 }
 
-piece::piece()
-{
+piece::piece() {
+	color = colors::NaC;
+	type = types::NaP;
+	promoted = false;
 }
 
-void piece::promote(types new_type)
+void piece::promote()
 {
-    type = new_type;
+	promoted = true;
+    type = KING;
+}
+
+void piece::demote() {
+	promoted = false;
+	type = PAWN;
 }
 
 bool piece::is_promoted()
 {
-    return can_be_promoted;
+    return promoted;
 }
 
 colors piece::get_color()

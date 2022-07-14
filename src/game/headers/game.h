@@ -5,16 +5,16 @@
 
 enum game_state
 {
-    PLAYER1_WON,
-    PLAYER1_TURN,
-    PLAYER2_WON,
-    PLAYER2_TURN
+    WHITE_WON,
+    WHITE_TURN,
+    BLACK_WON,
+    BLACK_TURN
 };
 
 class game
 {
 private:
-    game_state has_winner;
+    game_state game_status;
     player player1;
     player player2;
 
@@ -28,7 +28,8 @@ public:
 
     void create_new_game(char *player1_name, char *player2_name, int board_size);
 
-    void update();
+    bool update();
+    bool can_move(cell *cell_departure, cell *cell_arrival);
 
     player get_player1();
     player get_player2();
